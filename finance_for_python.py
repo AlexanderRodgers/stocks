@@ -5,7 +5,6 @@ import pandas as pd
 import pandas_datareader.data as web
 import pickle
 import requests
-import time
 import csv
 
 def save_sp500_tickers():
