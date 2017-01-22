@@ -15,6 +15,14 @@ def save_sp500_tickers():
     for row in table.findAll('tr')[1:]:
         ticker = row.findAll('td')[0].text
         tickers.append(ticker)
+
+    #Code block for debugging and for my lack of knowledge on pickling.    
+    text_file = open('sp500tickers.txt', 'w')
+    for tick in tickers:
+        print('writing ticker',tick)
+        text_file.write(tick+'\n')
+    text_file.close()
+        
     with open('sp500tickers.pickle', 'wb') as f:
         pickle.dump(tickers, f)
 
@@ -102,7 +110,7 @@ def update_csv():
                         #Confirm that we successfully updated the csv file.
                         print(comps,'updated')
 
-get_data_from_yahoo()
 save_sp500_tickers()
-update_csv()
+##get_data_from_yahoo()
+##update_csv()
 
